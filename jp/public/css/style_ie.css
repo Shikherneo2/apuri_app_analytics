@@ -1,0 +1,8 @@
+.nav li {
+    width: 265px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    margin-left: -4px;
+}

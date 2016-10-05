@@ -1,0 +1,289 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+}
+
+.upload input{
+    display: none;
+}
+
+.pure-button{
+    margin: 5px 0;
+}
+.upload{
+}
+
+.status{
+    display: none;
+    padding: 5px;
+    background: #F47063;
+    width: 100%;
+    color: white;
+    margin: 8px 0;
+}
+
+.progress {
+    position: relative;
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid #DDD;
+    padding: 5px;
+    border-radius: 3px;
+}
+.bar{
+    background: #008DE6;
+    height: 20px;
+    width: 0%;
+    /* transition animation */
+    -webkit-transition: width .3s;
+    -moz-transition: width .3s;
+    transition: width .3s;
+
+}
+.percent {
+    position: absolute;
+    display: inline-block;
+    top: 6px;
+    left: 48%;
+    color: #333;
+}
+
+
+
+ul#nav{
+    height:82px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+li#logout {
+    float: right !important;
+
+}
+
+span.nav-center {
+    display: table;
+    margin: 0 auto;
+
+}
+
+#nav li {
+    float: left;
+    text-align: center;
+    display: inline-block;
+    width: 225px;
+}
+
+#nav a{
+    vertical-align: middle;
+}
+
+div#analytics_wrapper {
+
+    margin: 15px 60px 0px 60px;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    padding: 20px 20px 20px 20px;
+}
+
+h1.align-center {
+    margin: 20px 0px 20px 0px;
+}
+
+thead{
+    background-color: #FFFFFF;
+}
+
+tfoot {
+    display: none;
+}
+
+.dt-buttons {
+    float: right !important;
+    margin-top: 12px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: none !important;
+}
+
+span#filter {
+    margin: 0px 24px 0px 61px;
+}
+
+form.ink-form.ink-formvalidator {
+    width: 900px !important;
+    margin: 0 auto;
+    display: table;
+    border: 1px solid rgba(64, 64, 64, 0.16);
+    padding: 46px 30px 30px 30px;
+}
+
+form{
+    background-color: rgba(234, 234, 234, 0.84);
+}
+
+
+select#option {
+    float: left;
+    width: 176px;
+    margin-left: 34px;
+    height:41px;
+}
+
+input#ID {
+    float: left;
+    width: 387px;
+}
+
+input#applist {
+    margin-top: 10px;
+    width: 168px;
+}
+
+a.ink-button.black.push-center {
+    width: 200px;
+    margin-left: 25px;
+}
+
+div#home_buttons {
+    margin-top: 250px;
+}
+
+form#employee{
+    width: 900px !important;
+    padding: 13px 30px 30px 30px !important;
+}
+
+th.align-right.sorting_desc {
+    background-image: none !important;
+}
+
+th.align-right.sorting_asc {
+    background-image: none !important;
+}
+
+th.align-right.sorting{
+    background-image: none !important;
+}
+
+table#shop-employee {
+    margin-top: 20px;
+}
+
+h2.align-center {
+    margin-top: 20px;
+}
+
+input#delete {
+    margin-top: 12px;
+}
+
+span#filterby {
+    margin: 0 auto;
+    display: table;
+}
+
+a.ink-button.black.push-center.align-center {
+    float: left !important;
+}
+
+
+.input_container ul {
+    width: 838px;
+    border: 1px solid #C6C6C6;
+    position: absolute;
+    z-index: 9;
+    background: #FFFFFF;
+    list-style: none;
+}
+.input_container ul li {
+    padding: 2px;
+    cursor: pointer;
+}
+.input_container ul li:hover {
+    background: #eaeaea;
+    cursor: pointer;
+}
+#franchise_list_id {
+    display: none;
+}
+
+#shop_list_id {
+    display: none;
+}
+
+#list_id {
+    display: none;
+}
+
+ul#list_id {
+    width: 200px;
+    border: 1px solid #C6C6C6;
+    position: absolute;
+    z-index: 9;
+    background: #FFFFFF;
+    list-style: none;
+    right: -1px;
+}
+ul#list_id li {
+    padding: 2px;
+    cursor: pointer;
+}
+ ul#list_id li:hover {
+    background: #eaeaea;
+    cursor: pointer;
+}
+
+ul#filter_id {
+    width: 203px;
+    border: 1px solid #C6C6C6;
+    position: absolute;
+    z-index: 9;
+    background: #FFFFFF;
+    list-style: none;
+    left: 181px;
+    text-align: left;
+}
+ul#filter_id li {
+    padding: 2px;
+    cursor: pointer;
+}
+ul#filter_id li:hover {
+    background: #eaeaea;
+    cursor: pointer;
+}
+
+input#draw {
+    margin-right: 10px;
+}
+
+input#add {
+    margin-right: 5px;
+}
+
+form#shop_table {
+    width: 70% !important;
+    min-width: 900px;
+}
+
+div#ui-datepicker-div {
+    width: 14% !important;
+}
+
+@media screen and (min-width: 600px) {
+    .nav li {
+        width: 265px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    /* Option 1 - Display Inline */
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+}

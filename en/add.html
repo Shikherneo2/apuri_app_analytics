@@ -1,0 +1,15 @@
+<html>
+<body>
+	<form action="auth/register" method="post">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<input type="text" name="name">
+		<input type="text" name="email">
+		<input type="text" name="userid">
+		<input type="password" name="password">
+		<input type="password" name="password">
+		<input type="hidden" name="_user_type" value="2">
+		<input type="submit" value=Add>
+
+	</form>
+</body>
+</html>
