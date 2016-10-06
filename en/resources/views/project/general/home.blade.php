@@ -19,6 +19,13 @@
 @endif
 
 <div class="button-group align-center push-center" id="home_buttons">
+
+@if($type == "2")
+    <a href="manage-admin" class="ink-button black push-center align-center">
+        <i class="fa fa-chain fa-2x" ></i><br/>
+        Manage<br/> Admins
+    </a>
+@endif
   
 @if($type == "3")
     <a href="manage-franchise" class="ink-button black push-center align-center">
@@ -39,12 +46,14 @@
         Shopkeepers
     </a>
 @endif
-@if($type == "3")
+@if($type == "3" || $type == "5")
     <a href="manage-shop_employee" class="ink-button black push-center align-center">
         <i class="fa fa-briefcase fa-2x" ></i><br/>Manage<br/>
         Employees
     </a>
-    
+@endif
+
+@if($type == "3")    
     <a href="manage-app" class="ink-button black push-center align-center">
         <i class="fa fa-mobile-phone fa-2x" ></i><br/>Manage<br/> Apps
     </a>

@@ -20,6 +20,7 @@ Route::get('404notfound','MiscController@notfound');
 Route::get('unauthorized','MiscController@unauthorized');
 
 Route::get('home','HomeController@home');
+Route::get('manage-admin','AdminController@manage_admin');
 Route::post('addAdmin','AdminController@addAdmin');
 Route::post('deleteAdmin','AdminController@deleteAdmin');
 Route::get('view_admin_records','AdminController@viewAdminRecords');

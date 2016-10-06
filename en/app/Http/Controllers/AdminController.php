@@ -19,6 +19,20 @@ class AdminController extends Controller {
 	}
 
 	/**
+	 * View manage franchise page.
+	 *
+	 * @param  None
+	 * @return web-response
+	 */
+	public function manage_admin(){
+		
+		if( Auth::user()->login_type == 2)
+			return view("project.manage.manage-admin");
+		else
+			return view("errors.404");
+	}
+
+	/**
 	 * Add an Admin.
 	 *
 	 * @param  Request object
@@ -108,15 +122,14 @@ class AdminController extends Controller {
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
 	private function validator(array $data, $id){
-		$data["userid"] = str_replace("H", "", $data["userid"] ); 
 
 		if($id){
 			$messages = array(
 	    		'userid.required'  => 'User ID field is required',
-	    		'userid.digits'  => 'User ID must be 7 digits'
+	    		'userid.numeric'  => 'User ID must be numeric'
 			);
 			return Validator::make($data, [
-				'userid' => 'required|digits:7',
+				'userid' => 'required|numeric',
 			], $messages); 
 		}
 		else{
@@ -127,11 +140,11 @@ class AdminController extends Controller {
 	    		'name.required' => 'Name field is required.',
 	    		'name.max' => 'Please enter a name smaller than 255 characters',
 	    		'userid.required'  => 'User ID field is required',
-	    		'userid.digits'  => 'User ID must be 7 digits long'
+	    		'userid.numeric'  => 'User ID must be numeric'
 			);
 			return Validator::make($data, [
 				'name' => 'required|max:255',
-				'userid' => 'required|digits:7',
+				'userid' => 'required|numeric',
 				'email' => 'required|email|max:255|unique:users'
 			], $messages);
 		}
@@ -145,12 +158,12 @@ class AdminController extends Controller {
 	 */
 	private function create(array $data){
 		
-		$tempid = "H".$data['userid'];
+		$tempid = $data['userid'];
 		$usernew = Login::firstOrNew(array('userid' => $tempid));
 		
 		if( is_null($usernew->id) ){
 			DB::transaction(function($data) use ($data, $usernew){
-				$usernew->userid = ("H".$data['userid']);
+				$usernew->userid = $data['userid'];
 				$usernew->login_type = 3;
 				$usernew->password = bcrypt("spiderman");
 				$usernew->save();

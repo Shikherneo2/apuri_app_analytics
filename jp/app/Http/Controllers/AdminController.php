@@ -19,6 +19,20 @@ class AdminController extends Controller {
 	}
 
 	/**
+	 * View manage franchise page.
+	 *
+	 * @param  None
+	 * @return web-response
+	 */
+	public function manage_admin(){
+		
+		if( Auth::user()->login_type == 2)
+			return view("project.manage.manage-admin");
+		else
+			return view("errors.404");
+	}
+
+	/**
 	 * Add an Admin.
 	 *
 	 * @param  Request object
@@ -41,7 +55,7 @@ class AdminController extends Controller {
 		    else{
 		   		return redirect()->back()
 			  	->withErrors([
-						'exists' => '入力したIDのアカウントはすでに存在します。　ほかのIDを入力してください。',
+						'exists' => 'There is already an account with that ID.　Please enter a different ID.',
 					]);
 			}
 		}
@@ -78,7 +92,7 @@ class AdminController extends Controller {
 						$res = $user->forceDelete();
 					else{
 						return redirect()->back->withErrors([
-							'cant delete' => 'おっとっと!　リクエスト処理中に問題が発生しました.',
+							'cant delete' => 'Sorry!　There was an error processing your request.',
 						]);
 					}
 
@@ -87,12 +101,12 @@ class AdminController extends Controller {
 			else{
 				return redirect()->back()
 						->withErrors([
-							'userid' => 'おっとっと!　リクエスト処理中に問題が発生しました.',
+							'userid' => 'Sorry!　There was an error processing your request.',
 						]);
 			}
 
 			return redirect()->back()
-					->with('success','ユーザは削除しました。');
+					->with('success','The user has been deleted.');
 		}
 		else{
 			return redirect()->to("unauthorized");
@@ -108,30 +122,29 @@ class AdminController extends Controller {
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
 	private function validator(array $data, $id){
-		$data["userid"] = str_replace("H", "", $data["userid"] ); 
 
 		if($id){
 			$messages = array(
-	    		'userid.required'  => 'ユーザIDが必要です。',
-	    		'userid.digits'  => 'ユーザIDは 7 桁でなければなりません。'
+	    		'userid.required'  => 'User ID field is required',
+	    		'userid.numeric'  => 'User ID must be numeric'
 			);
 			return Validator::make($data, [
-				'userid' => 'required|digits:7',
+				'userid' => 'required|numeric',
 			], $messages); 
 		}
 		else{
 			$messages = array(
-	    		'email.required' => 'メール　アドレスが必要です。',
-	    		'email.email' => '入力したメールは無効です。',
-	    		'email.max' => 'メール　アドレスの長さは255文字以下のなければなりません。。',
-	    		'name.required' => '名前が必要です。',
-	    		'name.max' => '名前の長さは255文字以下のなければなりません。。',
-	    		'userid.required'  => 'ユーザIDが必要です。',
-	    		'userid.digits'  => 'ユーザIDは 7 桁でなければなりません。'
+	    		'email.required' => 'email field is required',
+	    		'email.email' => 'Please enter a valid email',
+	    		'email.max' => 'Please enter an email address smaller than 255 characters',
+	    		'name.required' => 'Name field is required.',
+	    		'name.max' => 'Please enter a name smaller than 255 characters',
+	    		'userid.required'  => 'User ID field is required',
+	    		'userid.numeric'  => 'User ID must be numeric'
 			);
 			return Validator::make($data, [
 				'name' => 'required|max:255',
-				'userid' => 'required|digits:7',
+				'userid' => 'required|numeric',
 				'email' => 'required|email|max:255|unique:users'
 			], $messages);
 		}
@@ -145,12 +158,12 @@ class AdminController extends Controller {
 	 */
 	private function create(array $data){
 		
-		$tempid = "H".$data['userid'];
+		$tempid = $data['userid'];
 		$usernew = Login::firstOrNew(array('userid' => $tempid));
 		
 		if( is_null($usernew->id) ){
 			DB::transaction(function($data) use ($data, $usernew){
-				$usernew->userid = ("H".$data['userid']);
+				$usernew->userid = $data['userid'];
 				$usernew->login_type = 3;
 				$usernew->password = bcrypt("spiderman");
 				$usernew->save();
