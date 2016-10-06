@@ -5,8 +5,8 @@ This web-app was created for a Japanese Company I was working for, but was never
 
 It was part of a project to promote Partner companies' apps to users who bought phones through our company. This web-app is an analytics and management tool, for tracking installations on users' phones.
 
-------------------------------
 Here is a simplistic structure - 
+------------------------------
 
 1. The Super admin - Unlike what the name suggests, the super admin has a single job - to manage Admins.
 
@@ -18,19 +18,19 @@ Here is a simplistic structure -
 
 5. A shop employee does not have the ability to manage any shops or employees.
 
-6. Users are only allowed to view analytics within their own sphere of control. For eg. a Franchise can only see analytics data of installations made on phones sold from his shops.  
-------------------------------
+6. Users are only allowed to view analytics within their own sphere of control. For eg. a Franchise can only see analytics data of installations made on phones sold from his shops.
 
 Structure of the app - 
+------------------------------
 
 1. The back-end is written in Laravel and MySQL.
 
 2. The front-end uses jQuery and the ink framework.    
 
 3. Server side Data-table is used to display information.
-------------------------------
 
 Instructions on Setting up
+------------------------------
 
 1. Choose the language you want to use, put that folder on your server's directory(only required files will be open to access), and rename the folder to "cretin_app_analytics".
 
@@ -44,15 +44,14 @@ Instructions on Setting up
 
 6. Here are the login types for all users
 
-Super Admin -2
-Admin - 3
-Franchise - 4
-Shopkeeper - 5
-Shop Employee - 6
+    Super Admin -2
+    Admin - 3
+    Franchise - 4
+    Shopkeeper - 5
+    Shop Employee - 6
 
 7. The default password is "spiderman".
 
 8. The id is what is shown in the records below, when you create a new user (Except the admin, where you specify the ID).
-------------------------------
 
 You can use the project as you wish, without any restrictions.
