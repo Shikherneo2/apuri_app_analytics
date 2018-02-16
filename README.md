@@ -32,7 +32,7 @@ Structure of the app -
 Instructions on Setting up
 ------------------------------
 
-1. Choose the language you want to use, put that folder on your server's directory(only required files will be open to access), and rename the folder to "cretin_app_analytics".
+1. Choose the language you want to use, put that folder on your server's directory(only required files will be open to access), and rename the folder to "apuri_app_analytics".
 
 2. The database can be setup by simply runnning the migrations. The database credentials can be setup by editing the .env file.
 
